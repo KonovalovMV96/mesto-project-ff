@@ -22,7 +22,7 @@ function createCard(card, removeCard) {
 
   const removeButton = cardElement.querySelector(".card__delete-button");
   removeButton.addEventListener("click", (evt) => {
-    removeCard(evt.target.closest(".card"));
+  removeCard(cardElement);
   });
 
   return cardElement;
