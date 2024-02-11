@@ -1,5 +1,5 @@
 //Ф-я открытия попавов
-function popupOpen(popup){
+function openPopup(popup){
   popup.classList.add('popup_is-animated');
   popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', closeEsc);
@@ -7,7 +7,7 @@ function popupOpen(popup){
 }
 
 //Ф-я закрытия попавов
-function popupClose(popup){
+function closePopup(popup){
   popup.classList.remove('popup_is-opened');
   document.removeEventListener('keydown', closeEsc);
   document.removeEventListener('click', closeOverlay);  
@@ -16,15 +16,15 @@ function popupClose(popup){
 //Закрытие по ESC
 function closeEsc (evt){
   if (evt.key === 'Escape'){
-    popupClose(document.querySelector('.popup_is-opened'));
+    closePopup(document.querySelector('.popup_is-opened'));
   }
 }
 
 //Закрытие по клику на оверлей
 function closeOverlay (evt){
   if (evt.target.classList.contains('popup')){
-    popupClose(evt.target);
+    closePopup(evt.target);
   }
 }
 
-export {popupOpen, popupClose}
+export {openPopup, closePopup}

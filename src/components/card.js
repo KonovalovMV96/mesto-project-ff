@@ -1,4 +1,4 @@
-function createCard(card, removeCard, likeCard, popupOpenImage) {
+function createCard(card, removeCard, likeCard, openPopupImage) {
   const cardTemplate = document.querySelector("#card-template").content;
   const cardElement = cardTemplate.querySelector(".card").cloneNode(true);
 
@@ -19,7 +19,7 @@ function createCard(card, removeCard, likeCard, popupOpenImage) {
   });
 
   cardImg.addEventListener("click",  (evt) => {
-    popupOpenImage(cardImg);
+    openPopupImage(cardImg);
     });
  
   return cardElement;
