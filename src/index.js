@@ -93,7 +93,6 @@ Promise.all([getInitialCardsApi(), getInfoUserApi()])
         createCard(cardData, userData._id, removeCard, likeCard, openPopupImage)
       );
     });
-    console.log(userData);
     titleProfile.textContent = userData.name;
     descriptionProfile.textContent = userData.about;
     avatarProfile.style.backgroundImage = `url(${userData.avatar})`;
