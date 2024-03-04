@@ -18,6 +18,7 @@ const popupEdit = document.querySelector(".popup_type_edit"); //попап ре�
 const popupAdd = document.querySelector(".popup_type_new-card"); //попап добавления новой карточки
 const popupImg = document.querySelector(".popup_type_image"); //попап большой картинки
 const popupAvatar = document.querySelector(".popup_type_edit-avatar"); //попап аватарки
+const popupDeliteCard = document.querySelector('.popup_type_delite-card'); //попап подтверждения удаления карточки
 
 //Кнопки
 const popupProfileEditButton = document.querySelector(".profile__edit-button"); // кнопка редактирования профиля
@@ -42,16 +43,21 @@ const popupCaptionOpen = popupImg.querySelector(".popup__caption"); //Подпи
 const formAvatar = document.forms["edit-avatar"]; //форма редактирования аватара
 const urlAvatarInput = formAvatar.elements.avatar; // Поле url формы
 const avatarButtonSave = formAvatar.querySelector(".popup__button"); //Кнопка "Сохранить" в форме редактирования аватара
+const deliteCardButton = popupDeliteCard.querySelector('.popup__button'); //Кнопка в попапе подтверждения удаления карточки
 
 //Ф-я удадения карточки
 function removeCard(cardId, removeButton) {
-  deleteCardApi(cardId)
+  openPopup(popupDeliteCard);
+  deliteCardButton.addEventListener('click', function() {
+    deleteCardApi(cardId)
     .then(() => {
       removeButton.closest(".card").remove();
+      closePopup(popupDeliteCard)
     })
     .catch((err) => {
       console.log(err);
     });
+  })  
 }
 
 //Ф-я лайк-карточки
